@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         Bitrix-Sums
-// @version      2.41
+// @version      2.42
 // @description  Summiert Stunden und Story Points in Bitrix-Boards und Sprints (mit Rest-Tags Unterstützung)
 // @author       Michael E.
-// @updateURL    https://eime.github.io/bxSums/bxSums.meta.js
-// @downloadURL  https://eime.github.io/bxSums/bxSums.js
+// @updateURL    https://mobimedia.github.io/bxSums/bxSums.meta.js
+// @downloadURL  https://mobimedia.github.io/bxSums/bxSums.js
 // @include      https://bitrix.*.de/*
 // @grant        none
 // @require https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js
@@ -30,11 +30,11 @@ var
         window.localStorage.setItem("showMode", '1');
     }
     _$("head").append(
-        '<link id="bxSumsLink" href="https://eime.github.io/bxSums/bxSumsCards.css?36" rel="stylesheet" type="text/css">'
+        '<link id="bxSumsLink" href="https://mobimedia.github.io/bxSums/bxSumsCards.css?36" rel="stylesheet" type="text/css">'
     );
 //     if (_$(".main-kanban-column").length || _$("#bizproc_task_list_table").length || _$(".tasks-iframe-header").length || _$(".tasks-scrum__scope").length) {
 //         _$("head").append(
-//             '<link id="bxSumsLink" href="https://eime.github.io/bxSums/bxSumsCards.css?40" rel="stylesheet" type="text/css">'
+//             '<link id="bxSumsLink" href="https://mobimedia.github.io/bxSums/bxSumsCards.css?40" rel="stylesheet" type="text/css">'
 //         );
 //     }
 
