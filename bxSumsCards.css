@@ -276,11 +276,23 @@ ul.customBxSums .bandR {
 }
 
 /* Tags für Kanban und Scrum Ansicht */
+.tasks-kanban-item-title,
+.tasks-scrum__item--title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.tasks-kanban-item-title:before,
+.tasks-scrum__item--title:before {
+    display: none;
+}
+
 .tasks-kanban-item-title .bsTags,
 .tasks-scrum__item--title .bsTags {
-    display: inline-block;
-    margin: -1px -3px 2px 0;
-    vertical-align: middle;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 0 4px 0;
 }
 
 .bsTags > span {
