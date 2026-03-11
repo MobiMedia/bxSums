@@ -1,3 +1,7 @@
+html.mobi-task-v2-format .tasks-full-card-header {
+    padding-bottom: 12px;
+}
+
 .customBxSums {
     position: relative;
     display: flex;

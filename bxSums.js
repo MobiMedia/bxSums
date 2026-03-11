@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Bitrix-Sums
-// @version      2.42
+// @version      2.43
 // @description  Summiert Stunden und Story Points in Bitrix-Boards und Sprints (mit Rest-Tags Unterstützung)
 // @author       Michael E.
 // @updateURL    https://mobimedia.github.io/bxSums/bxSums.meta.js
@@ -46,7 +46,7 @@ var
             urls = [];
 
         _$(this).parents(".main-kanban-column").find(".tasks-kanban-item-title").each(function () {
-            urls.push(window.location.origin + _$(this).attr("href"));
+            urls.push(window.location.origin + _$(this).attr("href").split("?")[0]);
         });
 
         if (!urls.length) {
@@ -139,7 +139,7 @@ function handleTaskLinkCopy() {
         });
 
     // Buttons zur Toolbar hinzufügen
-    _$(".ui-toolbar-right-buttons").prepend($excelButton, $markdownButton);
+    _$(".tasks-full-card-header").append($markdownButton, $excelButton);
 
     // Optional: Behalte die ursprüngliche Shift+Click Funktionalität bei
     _$(".ui-toolbar-copy-link-button").bind("click", (ev) => {
@@ -220,15 +220,26 @@ function copyTaskDataToClipboard() {
 
 // Hilfsfunktion für Task-ID (aus dem ursprünglichen Script)
 function getTaskId(removeHash) {
-    if (!_$(".task-detail-subtitle-status").text().trim().length) {
-        return "";
+    // Most reliable: data-task-id attribute on the task card
+    const dataId = _$(".tasks-full-card[data-task-id]").attr("data-task-id");
+    if (dataId) {
+        return removeHash ? dataId : '#' + dataId;
     }
-    const result = _$(".task-detail-subtitle-status").text().trim().match(/#\d+/)[0] || "";
 
-    if (!removeHash) {
-        return result;
+    // Fallback: text in "ID: 12345" element
+    const idText = _$(".tasks-field-created-date-id-text").text().trim();
+    const idMatch = idText.match(/\d+/);
+    if (idMatch && idMatch[0]) {
+        return removeHash ? idMatch[0] : '#' + idMatch[0];
     }
-    return result.replace(/#/, '').toString();
+
+    // Fallback: extract task ID from URL (e.g. /tasks/task/view/123/)
+    const urlMatch = window.location.href.match(/\/tasks\/task\/view\/(\d+)/);
+    if (urlMatch && urlMatch[1]) {
+        return removeHash ? urlMatch[1] : '#' + urlMatch[1];
+    }
+
+    return "";
 }
 
 function handleTags() {
@@ -532,7 +543,16 @@ function setupTaskCloseObserver() {
             calculateVisibles();
             prepareSprints();
         });
+
     }
+
+    // Watch for task panel appearing in DOM (more reliable than SidePanel events)
+    var taskPanelObserver = new MutationObserver(function() {
+        if (_$(".tasks-full-card-header").length && !_$(".ui-toolbar-markdown-copy-button").length) {
+            handleTaskLinkCopy();
+        }
+    });
+    taskPanelObserver.observe(document.body, { childList: true, subtree: true });
 }
 
 function fetchTaskDataAndUpdate(taskId) {
