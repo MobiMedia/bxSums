@@ -269,6 +269,8 @@ function processTags(selector, parentSelector) {
         if (parentSelector) {
             $tags.prependTo($el.parent());
         } else {
+            // Wrap remaining content in a span so tags and title are clean siblings
+            $el.contents().wrapAll('<span class="bsTitle">');
             $tags.prependTo($el);
         }
     });

@@ -1,7 +1,3 @@
-html.mobi-task-v2-format .tasks-full-card-header {
-    padding-bottom: 12px;
-}
-
 .customBxSums {
     position: relative;
     display: flex;
@@ -276,23 +272,23 @@ ul.customBxSums .bandR {
 }
 
 /* Tags für Kanban und Scrum Ansicht */
-.tasks-kanban-item-title,
-.tasks-scrum__item--title {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.tasks-kanban-item-title:before,
-.tasks-scrum__item--title:before {
-    display: none;
-}
-
 .tasks-kanban-item-title .bsTags,
 .tasks-scrum__item--title .bsTags {
-    display: flex;
-    flex-wrap: wrap;
+    display: block;
     margin: 0 0 4px 0;
+}
+
+.tasks-kanban-item-title .bsTitle,
+.tasks-scrum__item--title .bsTitle {
+    display: block;
+}
+
+.tasks-kanban-item-title {
+    padding-right: 12px;
+}
+
+.tasks-kanban-item-title:after {
+    top: 52px;
 }
 
 .bsTags > span {
