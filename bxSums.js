@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Bitrix-Sums
-// @version      2.43
+// @version      2.44
 // @description  Summiert Stunden und Story Points in Bitrix-Boards und Sprints (mit Rest-Tags Unterstützung)
 // @author       Michael E.
 // @updateURL    https://mobimedia.github.io/bxSums/bxSums.meta.js
