@@ -30,10 +30,10 @@ var
         window.localStorage.setItem("showMode", '1');
     }
     _$("head").append(
-        '<link href="https://mobimedia.github.io/bxSums/tag-colors.css?1" rel="stylesheet" type="text/css">'
+        '<link href="https://mobimedia.github.io/bxSums/tag-colors.css?46" rel="stylesheet" type="text/css">'
     );
     _$("head").append(
-        '<link id="bxSumsLink" href="https://mobimedia.github.io/bxSums/bxSumsCards.css?37" rel="stylesheet" type="text/css">'
+        '<link id="bxSumsLink" href="https://mobimedia.github.io/bxSums/bxSumsCards.css?46" rel="stylesheet" type="text/css">'
     );
 //     if (_$(".main-kanban-column").length || _$("#bizproc_task_list_table").length || _$(".tasks-iframe-header").length || _$(".tasks-scrum__scope").length) {
 //         _$("head").append(
