@@ -296,75 +296,45 @@ ul.customBxSums .bandR {
 }
 
 .bsTags > span {
-    background-color: #444;
-    display: inline-block;
+    background-color: var(--tag-default, #444);
+    display: var(--tag-display, inline-block);
     text-align: center;
     width: auto;
     min-width: 22px;
-    margin-right: 3px;
-    padding: 1px 4px 2px 4px;
-    border-radius: 3px;
-    color: #ffffff;
-    box-shadow: 0px 1px 2px rgba(0,0,0,0.2);
-    font-size: 10px;
-    font-weight: 600;
-    text-transform: uppercase;
-    line-height: 1.3;
-    vertical-align: middle;
+    margin-right: var(--tag-margin-right, 3px);
+    padding: var(--tag-padding, 1px 4px 2px 4px);
+    border-radius: var(--tag-border-radius, 3px);
+    color: var(--tag-color, #fff);
+    box-shadow: var(--tag-box-shadow, 0px 1px 2px rgba(0,0,0,0.2));
+    font-size: var(--tag-font-size, 10px);
+    font-weight: var(--tag-font-weight, 600);
+    text-transform: var(--tag-text-transform, uppercase);
+    line-height: var(--tag-line-height, 1.3);
+    vertical-align: var(--tag-vertical-align, middle);
 }
 
 .bsTags > span:before, .bsTags > span:after  {
     display: none !important;
 }
 
-.bsTags > span.bug {
-    background-color: #cf0303;
-}
-
-.bsTags > span.cr {
-    background-color: #7ab418;
-}
-
-.bsTags > span.anforderung {
-    background-color: #7ab418;
-}
-
-.bsTags > span.verbesserung {
-    background-color: #12b98f;
-}
-
-.bsTags > span.optimierung {
-    background-color: #128aca;
-}
-
-.bsTags > span.info {
-    background-color: #d700ca;
-}
-
-.bsTags > span.cloud {
-    background-color: #187eb4;
-}
-
-.bsTags > span.kopie {
-    background-color: #777;
-}
-
-.bsTags > span.bo {
-    background-color: #e67e22;
-}
-
-.bsTags > span.arc {
-    background-color: #3498db;
-}
-
-.bsTags > span.rb {
-    background-color: #9b59b6;
-}
-
-.bsTags > span.mockup {
-    background-color: #e91e63;
-}
-
-.bsTags > span.erledigt {
-    background-color: #27ae60;
-}
+.bsTags > span.bug { background-color: var(--tag-bug, #cf0303); }
+.bsTags > span.cr { background-color: var(--tag-cr, #7ab418); }
+.bsTags > span.anforderung { background-color: var(--tag-anforderung, #7ab418); }
+.bsTags > span.verbesserung { background-color: var(--tag-verbesserung, #12b98f); }
+.bsTags > span.verb { background-color: var(--tag-verb, #12b98f); }
+.bsTags > span.optimierung { background-color: var(--tag-optimierung, #128aca); }
+.bsTags > span.info { background-color: var(--tag-info, #d700ca); }
+.bsTags > span.cloud { background-color: var(--tag-cloud, #187eb4); }
+.bsTags > span.kopie { background-color: var(--tag-kopie, #777); }
+.bsTags > span.bo { background-color: var(--tag-bo, #e67e22); }
+.bsTags > span.arc { background-color: var(--tag-arc, #3498db); }
+.bsTags > span.rb { background-color: var(--tag-rb, #9b59b6); }
+.bsTags > span.mockup { background-color: var(--tag-mockup, #e91e63); }
+.bsTags > span.erledigt { background-color: var(--tag-erledigt, #27ae60); }
+.bsTags > span.problem { background-color: var(--tag-problem, #ff5722); }
+.bsTags > span.feintuning { background-color: var(--tag-feintuning, #f39c12); }
+.bsTags > span.adjustment { background-color: var(--tag-adjustment, #607d8b); }
+.bsTags > span.anpassung { background-color: var(--tag-anpassung, #00838f); }
+.bsTags > span.quintet { background-color: var(--tag-quintet, #444); }
+.bsTags > span.q { background-color: var(--tag-q, #444); }
+.bsTags > span.b2b { background-color: var(--tag-b2b, #444); }
